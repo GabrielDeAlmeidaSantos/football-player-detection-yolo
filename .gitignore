@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (no subir datasets)
+data/raw/
+data/processed/
+
+# Models (pesos)
+models/
+*.pt
+*.pth
+
+# Outputs
+results/
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
