@@ -1,33 +1,37 @@
-# Football Player Detection with YOLO
+# ⚽ Football Player Detection with YOLO
 
-Detección automática de jugadores, balón y árbitros en imágenes y vídeo de fútbol utilizando un modelo YOLOv8 entrenado sobre un dataset especializado.
+Detección automática de **jugadores, balón y árbitros** en imágenes y vídeo de fútbol utilizando un modelo **YOLOv8** entrenado sobre un dataset especializado.
 
-Este proyecto muestra un flujo completo de Computer Vision:
+Este proyecto representa un flujo completo de Computer Vision:
 
-* Preparación de dataset
-* Entrenamiento de modelo YOLO
-* Evaluación con métricas estándar
-* Inferencia sobre vídeo real
-
----
-
-## Objetivo del proyecto
-
-Construir un modelo de detección de objetos capaz de identificar:
-
-* Jugadores
-* Balón
-* Árbitros
-
-Aplicado a escenas reales de fútbol, con enfoque práctico para análisis deportivo y sistemas de tracking.
+* 📦 Preparación de dataset
+* 🧠 Entrenamiento de modelo YOLO
+* 📊 Evaluación con métricas estándar
+* 🎥 Inferencia sobre vídeo real
 
 ---
 
-## Dataset
+## 🎯 Objetivo
+
+Construir un modelo capaz de detectar en escenas reales de fútbol:
+
+* 👕 Jugadores
+* ⚽ Balón
+* 🧑‍⚖️ Árbitros
+
+Con enfoque práctico para:
+
+* Análisis deportivo
+* Sistemas de tracking
+* Aplicaciones de visión por computador en deportes
+
+---
+
+## 📚 Dataset
 
 Se utilizó el dataset:
 
-**Soccana Player-Ball-Referee Detection**
+**Soccana Player–Ball–Referee Detection**
 
 Contiene imágenes etiquetadas en formato YOLO con tres clases:
 
@@ -37,7 +41,7 @@ Contiene imágenes etiquetadas en formato YOLO con tres clases:
 2: Referee
 ```
 
-Estructura final tras preparación:
+Estructura final tras la preparación:
 
 ```
 data/processed/
@@ -54,9 +58,9 @@ data/processed/
 
 ---
 
-## Arquitectura del modelo
+## 🧠 Modelo utilizado
 
-Modelo utilizado:
+Modelo base:
 
 ```
 YOLOv8n (Ultralytics)
@@ -64,16 +68,16 @@ YOLOv8n (Ultralytics)
 
 Características:
 
-* Arquitectura ligera (~3M parámetros)
-* Optimizada para inferencia rápida
-* Preentrenada en COCO
-* Fine-tuning sobre dataset de fútbol
+* ⚡ Arquitectura ligera (~3M parámetros)
+* 🚀 Optimizada para inferencia rápida
+* 🌍 Preentrenada en COCO
+* 🎯 Fine-tuning sobre dataset de fútbol
 
 ---
 
-## Entrenamiento
+## 🏋️ Entrenamiento
 
-Comando utilizado:
+Comando principal:
 
 ```bash
 yolo detect train \
@@ -94,9 +98,9 @@ Configuración clave:
 
 ---
 
-## Resultados
+## 📊 Resultados
 
-Evaluación sobre conjunto de test:
+Evaluación en el conjunto de test:
 
 | Clase      | Precision | Recall   | mAP50    | mAP50-95 |
 | ---------- | --------- | -------- | -------- | -------- |
@@ -105,17 +109,17 @@ Evaluación sobre conjunto de test:
 | Referee    | 0.81      | 0.74     | 0.80     | 0.47     |
 | **Global** | **0.83**  | **0.70** | **0.75** | **0.44** |
 
-Observaciones:
+### Observaciones
 
-* Alta precisión en detección de jugadores.
-* Detección del balón más compleja por tamaño reducido.
-* Buen equilibrio general entre precisión y recall.
+* 👕 Muy buena detección de jugadores.
+* ⚽ El balón es más difícil por su tamaño reducido.
+* ⚖️ Buen equilibrio general entre precisión y recall.
 
 ---
 
-## Inferencia sobre vídeo
+## 🎥 Inferencia sobre vídeo
 
-Ejemplo de predicción:
+Ejemplo:
 
 ```bash
 yolo detect predict \
@@ -124,7 +128,7 @@ yolo detect predict \
   conf=0.25
 ```
 
-Salida:
+Salida generada en:
 
 ```
 runs/detect/predict/
@@ -134,7 +138,7 @@ Contiene el vídeo con las detecciones dibujadas.
 
 ---
 
-## Estructura del proyecto
+## 📁 Estructura del proyecto
 
 ```
 football-player-detection-yolo/
@@ -156,7 +160,7 @@ football-player-detection-yolo/
 
 ---
 
-## Instalación
+## ⚙️ Instalación
 
 ### 1. Clonar repositorio
 
@@ -171,16 +175,18 @@ cd football-player-detection-yolo
 python -m venv .venv
 ```
 
-En Linux / Mac:
+Activar:
 
-```bash
-source .venv/bin/activate
-```
-
-En Windows:
+**Windows**
 
 ```bash
 .venv\Scripts\activate
+```
+
+**Linux / Mac**
+
+```bash
+source .venv/bin/activate
 ```
 
 ### 3. Instalar dependencias
@@ -200,9 +206,9 @@ pip install -r requirements.txt
 
 ---
 
-## Reentrenar el modelo
+## 🔁 Reentrenar el modelo
 
-1. Descargar dataset
+1. Descargar el dataset
 2. Preparar estructura:
 
 ```bash
@@ -217,7 +223,7 @@ yolo detect train model=yolov8n.pt data=data/data.yaml epochs=20 imgsz=640
 
 ---
 
-## Tecnologías utilizadas
+## 🧰 Tecnologías utilizadas
 
 * Python
 * PyTorch
@@ -227,16 +233,18 @@ yolo detect train model=yolov8n.pt data=data/data.yaml epochs=20 imgsz=640
 
 ---
 
-## Posibles mejoras
+## 🚀 Posibles mejoras
 
-* Entrenar con modelos más grandes (YOLOv8s, YOLOv8m).
-* Aumentar número de epochs.
-* Ajustar hiperparámetros.
-* Añadir tracking de jugadores.
-* Generar métricas de posesión o heatmaps.
+* Usar modelos más grandes (YOLOv8s, YOLOv8m).
+* Entrenar más epochs.
+* Ajuste de hiperparámetros.
+* Tracking de jugadores.
+* Heatmaps de movimiento o posesión.
 
 ---
 
-## Autor
+## 👨‍💻 Autor
 
-Proyecto desarrollado como parte de un portafolio de Data Science y Computer Vision orientado a aplicaciones reales.
+**Gabriel De Almeida Santos**
+
+Proyecto de Computer Vision centrado en la detección de jugadores, balón y árbitros utilizando YOLOv8, como parte de mi aprendizaje práctico en Machine Learning aplicado.
