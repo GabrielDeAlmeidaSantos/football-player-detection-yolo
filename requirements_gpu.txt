@@ -1,0 +1,4 @@
+--index-url https://download.pytorch.org/whl/nightly/cu128
+--pre
+torch==2.11.0.dev20260210+cu128
+torchvision==0.26.0.dev20260210+cu128
