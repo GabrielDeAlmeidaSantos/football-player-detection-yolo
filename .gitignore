@@ -27,8 +27,9 @@ data/processed/
 # =========================
 # Model weights
 # =========================
-models/
-*.pt
+models/*
+!models/soccana_yolov8n.pt
+*.pth
 *.pth
 
 # =========================
