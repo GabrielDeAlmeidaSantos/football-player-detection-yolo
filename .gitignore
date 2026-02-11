@@ -1,25 +1,44 @@
+# =========================
 # Python
+# =========================
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+
+# Entornos virtuales
 .venv/
+venv/
 env/
 
+# =========================
 # Jupyter
+# =========================
 .ipynb_checkpoints/
 
+# =========================
 # Data (no subir datasets)
+# =========================
 data/raw/
 data/processed/
 
-# Models (pesos)
+# =========================
+# Model weights
+# =========================
 models/
 *.pt
 *.pth
 
-# Outputs
+# =========================
+# YOLO outputs
+# =========================
+runs/
 results/
+*.cache
 
+# =========================
 # Editor / OS
+# =========================
 .vscode/
 .DS_Store
 Thumbs.db

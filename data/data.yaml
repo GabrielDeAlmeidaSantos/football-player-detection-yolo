@@ -1,6 +1,9 @@
 path: data/processed
 train: images/train
 val: images/val
+test: images/test
 
 names:
-  0: player
+  0: Player
+  1: Ball
+  2: Referee
