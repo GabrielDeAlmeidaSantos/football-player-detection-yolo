@@ -1,11 +1,13 @@
 # ⚽ Football Player Detection with YOLO
 
-Detección automática de **jugadores, balón y árbitros** en imágenes y vídeo de fútbol utilizando un modelo **YOLOv8** entrenado sobre un dataset especializado.
+![Demo](assets/demo.gif)
 
-Este proyecto representa un flujo completo de Computer Vision:
+Detección automática de **jugadores, balón y árbitros** en vídeo de fútbol utilizando un modelo **YOLOv8** entrenado sobre un dataset especializado.
 
-* 📦 Preparación de dataset
-* 🧠 Entrenamiento de modelo YOLO
+Este proyecto implementa un flujo completo de Computer Vision:
+
+* 📦 Preparación del dataset
+* 🧠 Entrenamiento del modelo YOLO
 * 📊 Evaluación con métricas estándar
 * 🎥 Inferencia sobre vídeo real
 
@@ -13,17 +15,17 @@ Este proyecto representa un flujo completo de Computer Vision:
 
 ## 🎯 Objetivo
 
-Construir un modelo capaz de detectar en escenas reales de fútbol:
+Desarrollar un modelo capaz de detectar en escenas reales de fútbol:
 
 * 👕 Jugadores
 * ⚽ Balón
 * 🧑‍⚖️ Árbitros
 
-Con enfoque práctico para:
+Con un enfoque práctico orientado a:
 
 * Análisis deportivo
 * Sistemas de tracking
-* Aplicaciones de visión por computador en deportes
+* Aplicaciones reales de visión por computador en deportes
 
 ---
 
@@ -33,7 +35,7 @@ Se utilizó el dataset:
 
 **Soccana Player–Ball–Referee Detection**
 
-Contiene imágenes etiquetadas en formato YOLO con tres clases:
+Clases:
 
 ```
 0: Player
@@ -41,7 +43,7 @@ Contiene imágenes etiquetadas en formato YOLO con tres clases:
 2: Referee
 ```
 
-Estructura final tras la preparación:
+Estructura tras la preparación:
 
 ```
 data/processed/
@@ -77,8 +79,6 @@ Características:
 
 ## 🏋️ Entrenamiento
 
-Comando principal:
-
 ```bash
 yolo detect train \
   model=yolov8n.pt \
@@ -89,7 +89,7 @@ yolo detect train \
   device=0
 ```
 
-Configuración clave:
+Configuración:
 
 * Epochs: 20
 * Tamaño de imagen: 640
@@ -100,8 +100,6 @@ Configuración clave:
 
 ## 📊 Resultados
 
-Evaluación en el conjunto de test:
-
 | Clase      | Precision | Recall   | mAP50    | mAP50-95 |
 | ---------- | --------- | -------- | -------- | -------- |
 | Player     | 0.91      | 0.90     | 0.94     | 0.60     |
@@ -111,15 +109,13 @@ Evaluación en el conjunto de test:
 
 ### Observaciones
 
-* 👕 Muy buena detección de jugadores.
-* ⚽ El balón es más difícil por su tamaño reducido.
+* 👕 Alta precisión en detección de jugadores.
+* ⚽ El balón presenta mayor dificultad por su tamaño.
 * ⚖️ Buen equilibrio general entre precisión y recall.
 
 ---
 
 ## 🎥 Inferencia sobre vídeo
-
-Ejemplo:
 
 ```bash
 yolo detect predict \
@@ -128,13 +124,11 @@ yolo detect predict \
   conf=0.25
 ```
 
-Salida generada en:
+Salida en:
 
 ```
 runs/detect/predict/
 ```
-
-Contiene el vídeo con las detecciones dibujadas.
 
 ---
 
@@ -143,82 +137,18 @@ Contiene el vídeo con las detecciones dibujadas.
 ```
 football-player-detection-yolo/
 │
+├── assets/
+│   └── demo.gif
 ├── data/
 │   ├── raw/
 │   └── processed/
-│
 ├── models/
 │   └── soccana_yolov8n.pt
-│
 ├── src/
 │   └── prepare_dataset.py
-│
 ├── requirements.txt
 ├── requirements-gpu.txt
 └── README.md
-```
-
----
-
-## ⚙️ Instalación
-
-### 1. Clonar repositorio
-
-```bash
-git clone <repo-url>
-cd football-player-detection-yolo
-```
-
-### 2. Crear entorno virtual
-
-```bash
-python -m venv .venv
-```
-
-Activar:
-
-**Windows**
-
-```bash
-.venv\Scripts\activate
-```
-
-**Linux / Mac**
-
-```bash
-source .venv/bin/activate
-```
-
-### 3. Instalar dependencias
-
-CPU:
-
-```bash
-pip install -r requirements.txt
-```
-
-GPU (opcional):
-
-```bash
-pip install -r requirements-gpu.txt
-pip install -r requirements.txt
-```
-
----
-
-## 🔁 Reentrenar el modelo
-
-1. Descargar el dataset
-2. Preparar estructura:
-
-```bash
-python -m src.prepare_dataset
-```
-
-3. Entrenar:
-
-```bash
-yolo detect train model=yolov8n.pt data=data/data.yaml epochs=20 imgsz=640
 ```
 
 ---
@@ -235,16 +165,14 @@ yolo detect train model=yolov8n.pt data=data/data.yaml epochs=20 imgsz=640
 
 ## 🚀 Posibles mejoras
 
-* Usar modelos más grandes (YOLOv8s, YOLOv8m).
-* Entrenar más epochs.
-* Ajuste de hiperparámetros.
-* Tracking de jugadores.
-* Heatmaps de movimiento o posesión.
+* Tracking de jugadores y balón.
+* Heatmaps de movimiento.
+* Modelos más grandes (YOLOv8s, YOLOv8m).
+* Entrenamiento con más datos y epochs.
 
 ---
 
 ## 👨‍💻 Autor
 
 **Gabriel De Almeida Santos**
-
-Proyecto de Computer Vision centrado en la detección de jugadores, balón y árbitros utilizando YOLOv8, como parte de mi aprendizaje práctico en Machine Learning aplicado.
+Data Scientist enfocado en Machine Learning aplicado y visión por computador.
