@@ -8,8 +8,10 @@ __pycache__/
 
 # Entornos virtuales
 .venv/
+.venv-yolo/
 venv/
 env/
+
 
 # =========================
 # Jupyter
